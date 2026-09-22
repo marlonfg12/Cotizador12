@@ -323,7 +323,7 @@
     "tiempoEntrega": "2 a 5 días hábiles",
     "inicioProyecto": "Una vez confirmado el anticipo",
     "notas": "",
-    "version": 5,
+    "version": 8,
     "historialVersiones": [
       {
         "version": 1,
@@ -675,10 +675,280 @@
           "entregaDesde": "2026-09-17",
           "entregaHasta": "2026-09-21"
         }
+      },
+      {
+        "version": 5,
+        "guardadoEn": "2026-09-15T18:14:22.015Z",
+        "snapshot": {
+          "id": "a5318d48-a1be-4103-b8c0-5f90e44b5e11",
+          "folio": "COT-2026-0002",
+          "destinatario": {
+            "nombre": "viacoltur sas",
+            "empresa": "viacoltur sas",
+            "telefono": "5405546",
+            "email": "",
+            "direccion": "tv 71bis 75b-17",
+            "nit": "800177674-6",
+            "tipoCliente": "empresa",
+            "clienteId": "d017a331-1390-45da-a973-c09b09afd00a"
+          },
+          "items": [
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 5/8 diaco",
+              "cantidad": 214,
+              "unidad": "pza",
+              "precioUnitario": 35042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 3/4",
+              "cantidad": 150,
+              "unidad": "pza",
+              "precioUnitario": 49579,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "alambre negro x kg",
+              "cantidad": 100,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "flejes de 40x50 3/8",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": "cd1d00cb-0b2f-4d10-9877-8a157077d5e2",
+              "descripcion": "hierro chipa 3/8 x kg",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 4369,
+              "descuentoPorcentaje": 0
+            }
+          ],
+          "subtotal": 18263338,
+          "descuentoClientePorcentaje": 0,
+          "descuentoCliente": 0,
+          "ivaPorcentaje": 19,
+          "aplicarIVA": true,
+          "iva": 3470034.22,
+          "retefuentePorcentaje": 2.5,
+          "aplicarReteFuente": true,
+          "retefuente": 456583.45,
+          "totalDespuesImpuestos": 21150771.7378,
+          "anticipo": 10575385.8689,
+          "saldo": 10575385.8689,
+          "total": 21150771.7378,
+          "estado": "enviada",
+          "vigenteHasta": "",
+          "servicio": "Venta de Material de Construcción / Ornamentación",
+          "detalleServicio": "Material de Construcción: Varillas, Flejes.\nOrnamentación: Portones, Portones Eléctricos, Vallas, Puertas, Ventanas.",
+          "condiciones": "• Anticipo del 50% ($10.575.386): Para iniciar fabricación / preparación\n• Saldo del 50% ($10.575.386): Contra entrega del material",
+          "metodosPago": "Transferencia bancaria\nNequi\nDaviplata\nEfectivo",
+          "tiempoEntrega": "2 a 5 días hábiles",
+          "inicioProyecto": "Una vez confirmado el anticipo",
+          "notas": "",
+          "version": 5,
+          "creadoEn": "2026-09-15T14:05:24.136Z",
+          "actualizadoEn": "2026-09-15T18:14:22.015Z",
+          "reteicaPorcentaje": 0.69,
+          "aplicarReteICA": true,
+          "reteica": 126017.03219999999,
+          "entregaDesde": "2026-09-17",
+          "entregaHasta": "2026-09-21"
+        }
+      },
+      {
+        "version": 6,
+        "guardadoEn": "2026-09-22T14:34:54.569Z",
+        "snapshot": {
+          "id": "a5318d48-a1be-4103-b8c0-5f90e44b5e11",
+          "folio": "COT-2026-0002",
+          "destinatario": {
+            "nombre": "viacoltur sas",
+            "empresa": "viacoltur sas",
+            "telefono": "5405546",
+            "email": "",
+            "direccion": "tv 71bis 75b-17",
+            "nit": "800177674-6",
+            "tipoCliente": "empresa",
+            "clienteId": "d017a331-1390-45da-a973-c09b09afd00a"
+          },
+          "items": [
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 5/8 diaco",
+              "cantidad": 214,
+              "unidad": "pza",
+              "precioUnitario": 35042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 3/4",
+              "cantidad": 150,
+              "unidad": "pza",
+              "precioUnitario": 49579,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "alambre negro x kg",
+              "cantidad": 100,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "flejes de 40x50 3/8",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": "cd1d00cb-0b2f-4d10-9877-8a157077d5e2",
+              "descripcion": "hierro chipa 3/8 x kg",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 4369,
+              "descuentoPorcentaje": 0
+            }
+          ],
+          "subtotal": 18263338,
+          "descuentoClientePorcentaje": 0,
+          "descuentoCliente": 0,
+          "ivaPorcentaje": 19,
+          "aplicarIVA": true,
+          "iva": 3470034.22,
+          "retefuentePorcentaje": 2.5,
+          "aplicarReteFuente": true,
+          "retefuente": 456583.45,
+          "totalDespuesImpuestos": 21150771.7378,
+          "anticipo": 10575385.8689,
+          "saldo": 10575385.8689,
+          "total": 21150771.7378,
+          "estado": "aprobada",
+          "vigenteHasta": "",
+          "servicio": "Venta de Material de Construcción / Ornamentación",
+          "detalleServicio": "Material de Construcción: Varillas, Flejes.\nOrnamentación: Portones, Portones Eléctricos, Vallas, Puertas, Ventanas.",
+          "condiciones": "• Anticipo del 50% ($10.575.386): Para iniciar fabricación / preparación\n• Saldo del 50% ($10.575.386): Contra entrega del material",
+          "metodosPago": "Transferencia bancaria\nNequi\nDaviplata\nEfectivo",
+          "tiempoEntrega": "2 a 5 días hábiles",
+          "inicioProyecto": "Una vez confirmado el anticipo",
+          "notas": "",
+          "version": 6,
+          "creadoEn": "2026-09-15T14:05:24.136Z",
+          "actualizadoEn": "2026-09-22T14:34:54.569Z",
+          "reteicaPorcentaje": 0.69,
+          "aplicarReteICA": true,
+          "reteica": 126017.03219999999,
+          "entregaDesde": "2026-09-17",
+          "entregaHasta": "2026-09-21"
+        }
+      },
+      {
+        "version": 7,
+        "guardadoEn": "2026-09-22T14:34:58.871Z",
+        "snapshot": {
+          "id": "a5318d48-a1be-4103-b8c0-5f90e44b5e11",
+          "folio": "COT-2026-0002",
+          "destinatario": {
+            "nombre": "viacoltur sas",
+            "empresa": "viacoltur sas",
+            "telefono": "5405546",
+            "email": "",
+            "direccion": "tv 71bis 75b-17",
+            "nit": "800177674-6",
+            "tipoCliente": "empresa",
+            "clienteId": "d017a331-1390-45da-a973-c09b09afd00a"
+          },
+          "items": [
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 5/8 diaco",
+              "cantidad": 214,
+              "unidad": "pza",
+              "precioUnitario": 35042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "varilla corrugada 3/4",
+              "cantidad": 150,
+              "unidad": "pza",
+              "precioUnitario": 49579,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "alambre negro x kg",
+              "cantidad": 100,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": null,
+              "descripcion": "flejes de 40x50 3/8",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 5042,
+              "descuentoPorcentaje": 0
+            },
+            {
+              "productoId": "cd1d00cb-0b2f-4d10-9877-8a157077d5e2",
+              "descripcion": "hierro chipa 3/8 x kg",
+              "cantidad": 300,
+              "unidad": "pza",
+              "precioUnitario": 4369,
+              "descuentoPorcentaje": 0
+            }
+          ],
+          "subtotal": 18263338,
+          "descuentoClientePorcentaje": 0,
+          "descuentoCliente": 0,
+          "ivaPorcentaje": 19,
+          "aplicarIVA": true,
+          "iva": 3470034.22,
+          "retefuentePorcentaje": 2.5,
+          "aplicarReteFuente": true,
+          "retefuente": 456583.45,
+          "totalDespuesImpuestos": 21150771.7378,
+          "anticipo": 10575385.8689,
+          "saldo": 10575385.8689,
+          "total": 21150771.7378,
+          "estado": "borrador",
+          "vigenteHasta": "",
+          "servicio": "Venta de Material de Construcción / Ornamentación",
+          "detalleServicio": "Material de Construcción: Varillas, Flejes.\nOrnamentación: Portones, Portones Eléctricos, Vallas, Puertas, Ventanas.",
+          "condiciones": "• Anticipo del 50% ($10.575.386): Para iniciar fabricación / preparación\n• Saldo del 50% ($10.575.386): Contra entrega del material",
+          "metodosPago": "Transferencia bancaria\nNequi\nDaviplata\nEfectivo",
+          "tiempoEntrega": "2 a 5 días hábiles",
+          "inicioProyecto": "Una vez confirmado el anticipo",
+          "notas": "",
+          "version": 7,
+          "creadoEn": "2026-09-15T14:05:24.136Z",
+          "actualizadoEn": "2026-09-22T14:34:58.871Z",
+          "reteicaPorcentaje": 0.69,
+          "aplicarReteICA": true,
+          "reteica": 126017.03219999999,
+          "entregaDesde": "2026-09-17",
+          "entregaHasta": "2026-09-21"
+        }
       }
     ],
     "creadoEn": "2026-09-15T14:05:24.136Z",
-    "actualizadoEn": "2026-09-15T18:14:22.015Z",
+    "actualizadoEn": "2026-09-22T14:35:01.839Z",
     "reteicaPorcentaje": 0.69,
     "aplicarReteICA": true,
     "reteica": 126017.03219999999,
@@ -892,5 +1162,94 @@
     "historialVersiones": [],
     "creadoEn": "2026-09-15T18:12:56.008Z",
     "actualizadoEn": "2026-09-15T18:12:56.008Z"
+  },
+  {
+    "destinatario": {
+      "nombre": "viacoltur sas",
+      "empresa": "viacoltur sas",
+      "telefono": "5405546",
+      "email": "",
+      "direccion": "tv 71bis 75b-17",
+      "nit": "800177674-6",
+      "tipoCliente": "empresa",
+      "clienteId": "d017a331-1390-45da-a973-c09b09afd00a"
+    },
+    "items": [
+      {
+        "productoId": null,
+        "descripcion": "varilla corrugada 5/8 diaco",
+        "cantidad": 214,
+        "unidad": "pza",
+        "precioUnitario": 35042,
+        "descuentoPorcentaje": 0
+      },
+      {
+        "productoId": null,
+        "descripcion": "varilla corrugada 3/4",
+        "cantidad": 150,
+        "unidad": "pza",
+        "precioUnitario": 49579,
+        "descuentoPorcentaje": 0
+      },
+      {
+        "productoId": null,
+        "descripcion": "alambre negro x kg",
+        "cantidad": 100,
+        "unidad": "pza",
+        "precioUnitario": 5042,
+        "descuentoPorcentaje": 0
+      },
+      {
+        "productoId": null,
+        "descripcion": "flejes de 40x50 3/8",
+        "cantidad": 300,
+        "unidad": "pza",
+        "precioUnitario": 5042,
+        "descuentoPorcentaje": 0
+      },
+      {
+        "productoId": "cd1d00cb-0b2f-4d10-9877-8a157077d5e2",
+        "descripcion": "hierro chipa 3/8 x kg",
+        "cantidad": 300,
+        "unidad": "pza",
+        "precioUnitario": 4369,
+        "descuentoPorcentaje": 0
+      }
+    ],
+    "subtotal": 18263338,
+    "descuentoClientePorcentaje": 0,
+    "descuentoCliente": 0,
+    "ivaPorcentaje": 19,
+    "aplicarIVA": true,
+    "iva": 3470034.22,
+    "retefuentePorcentaje": 2.5,
+    "aplicarReteFuente": true,
+    "retefuente": 456583.45,
+    "totalDespuesImpuestos": 21150771.7378,
+    "anticipo": 10575385.8689,
+    "saldo": 10575385.8689,
+    "total": 21150771.7378,
+    "estado": "borrador",
+    "vigenteHasta": "",
+    "servicio": "Venta de Material de Construcción / Ornamentación",
+    "detalleServicio": "Material de Construcción: Varillas, Flejes.\nOrnamentación: Portones, Portones Eléctricos, Vallas, Puertas, Ventanas.",
+    "condiciones": "• Anticipo del 50% ($10.575.386): Para iniciar fabricación / preparación\n• Saldo del 50% ($10.575.386): Contra entrega del material",
+    "metodosPago": "Transferencia bancaria\nNequi\nDaviplata\nEfectivo",
+    "tiempoEntrega": "2 a 5 días hábiles",
+    "inicioProyecto": "Una vez confirmado el anticipo",
+    "notas": "",
+    "version": 1,
+    "reteicaPorcentaje": 0.69,
+    "aplicarReteICA": true,
+    "reteica": 126017.03219999999,
+    "entregaDesde": "2026-09-17",
+    "entregaHasta": "2026-09-21",
+    "id": "9e539cb6-e785-49a4-a3bb-792651b9ec8e",
+    "folio": "COT-2026-0006",
+    "duplicadaDeFolio": "COT-2026-0002",
+    "duplicadaDeId": "a5318d48-a1be-4103-b8c0-5f90e44b5e11",
+    "historialVersiones": [],
+    "creadoEn": "2026-09-22T14:29:56.772Z",
+    "actualizadoEn": "2026-09-22T14:29:56.772Z"
   }
 ]

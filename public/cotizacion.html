@@ -38,10 +38,11 @@
           <p class="app__subtitulo">Complete los datos para generar, descargar o enviar la cotización.</p>
         </div>
         <div class="app__cabecera-acciones" style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+          <button class="btn btn--secundario" type="button" id="btnImprimir">🖨️ Imprimir / Descargar PDF</button>
           <a class="btn btn--secundario" id="btnVerPdf" href="#" target="_blank" hidden>📄 Ver PDF en carpeta</a>
           <button class="btn btn--secundario" type="button" id="btnWhatsApp" hidden>📱 Enviar por WhatsApp</button>
           <button class="btn btn--secundario" type="button" id="btnCorreo" hidden>✉️ Enviar por correo</button>
-          <button class="btn btn--primario" type="button" id="btnGuardar">Guardar cotización</button>
+          <button class="btn btn--primario" type="button" id="btnGuardar">💾 Guardar cotización</button>
         </div>
       </header>
 
@@ -307,6 +308,7 @@
         <!-- ACCIONES PRINCIPALES DEL FORMULARIO -->
         <div class="formulario__acciones" style="margin-top:2rem;">
           <button class="btn btn--primario btn--grande" type="submit">💾 Guardar cotización</button>
+          <button class="btn btn--secundario btn--grande" type="button" id="btnImprimirAbajo">🖨️ Imprimir / Descargar PDF</button>
           <a class="btn btn--secundario btn--grande" href="/dashboard.html">Volver al panel</a>
         </div>
       </form>

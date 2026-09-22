@@ -14,9 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formCliente');
   const btnNuevo = document.getElementById('btnNuevo');
   const btnCerrarModal = document.getElementById('btnCerrarModal');
+  const modalMsg = document.getElementById('modalMensajeCliente');
 
   // Estado local
   let clientes = [];
+
+  function mostrarModalError(texto) {
+    if (modalMsg) {
+      modalMsg.textContent = texto;
+      modalMsg.hidden = false;
+    }
+  }
+
+  function limpiarModalError() {
+    if (modalMsg) {
+      modalMsg.textContent = '';
+      modalMsg.hidden = true;
+    }
+  }
 
   /**
    * Renderiza el directorio de clientes con filtrado en tiempo real
@@ -74,12 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
    * Abre el modal para crear un nuevo cliente
    */
   function abrirNuevo() {
+    limpiarModalError();
     form.reset();
     document.getElementById('clienteId').value = '';
     document.getElementById('nit').value = '';
     document.getElementById('tipoCliente').value = 'persona';
     document.getElementById('modalTitulo').textContent = 'Nuevo cliente';
     UI.openModal();
+    setTimeout(() => document.getElementById('nombre')?.focus(), 100);
   }
 
   /**
@@ -87,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {object} cliente - Datos del cliente
    */
   function abrirEditar(cliente) {
+    limpiarModalError();
     document.getElementById('clienteId').value = cliente.id;
     document.getElementById('nombre').value = cliente.nombre || '';
     document.getElementById('empresa').value = cliente.empresa || '';
@@ -97,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('direccion').value = cliente.direccion || '';
     document.getElementById('modalTitulo').textContent = 'Editar cliente';
     UI.openModal();
+    setTimeout(() => document.getElementById('nombre')?.focus(), 100);
   }
 
   /**
@@ -105,16 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
   async function cargar() {
     try {
       clientes = await Api.getClientes();
-      render(buscar.value);
+      render(buscar ? buscar.value : '');
     } catch (err) {
       UI.showMessage('error', `Error cargando clientes: ${err.message}`);
     }
   }
 
   // Eventos de interfaz
-  btnNuevo.addEventListener('click', abrirNuevo);
-  btnCerrarModal.addEventListener('click', () => UI.closeModal());
-  buscar.addEventListener('input', () => render(buscar.value));
+  if (btnNuevo) btnNuevo.addEventListener('click', abrirNuevo);
+  if (btnCerrarModal) btnCerrarModal.addEventListener('click', () => UI.closeModal());
+  if (buscar) buscar.addEventListener('input', () => render(buscar.value));
 
   /**
    * Normaliza cadenas para comparación insensible a mayúsculas, acentos y espacios múltiples
@@ -144,12 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Guardar cliente
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    limpiarModalError();
+
     const id = document.getElementById('clienteId').value;
     const nombre = document.getElementById('nombre').value.trim();
     const nit = document.getElementById('nit').value.trim();
 
     if (!nombre) {
-      UI.showMessage('error', 'El nombre del cliente es obligatorio.');
+      mostrarModalError('El nombre del cliente es obligatorio.');
       document.getElementById('nombre').focus();
       return;
     }
@@ -157,10 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const normNombre = normalizarTexto(nombre);
     const duplicadoNombre = clientes.find((c) => c.id !== id && normalizarTexto(c.nombre) === normNombre);
     if (duplicadoNombre) {
-      UI.showMessage(
-        'error',
-        `Ya existe un cliente registrado con el nombre "${duplicadoNombre.nombre}". No se permiten clientes duplicados.`
-      );
+      mostrarModalError(`Ya existe un cliente registrado con el nombre "${duplicadoNombre.nombre}".`);
       document.getElementById('nombre').focus();
       return;
     }
@@ -170,10 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (normNit) {
         const duplicadoNit = clientes.find((c) => c.id !== id && c.nit && normalizarDoc(c.nit) === normNit);
         if (duplicadoNit) {
-          UI.showMessage(
-            'error',
-            `Ya existe un cliente registrado con el NIT/Cédula "${duplicadoNit.nit}" (${duplicadoNit.nombre}).`
-          );
+          mostrarModalError(`Ya existe un cliente registrado con el NIT/Cédula "${duplicadoNit.nit}" (${duplicadoNit.nombre}).`);
           document.getElementById('nit').focus();
           return;
         }
@@ -198,10 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       UI.closeModal();
-      UI.showMessage('exito', 'Cliente guardado correctamente.');
+      UI.showMessage('exito', `Cliente "${nombre}" guardado correctamente.`);
       await cargar();
     } catch (err) {
-      UI.showMessage('error', err.message);
+      mostrarModalError(err.message);
     }
   });
 

@@ -88,5 +88,15 @@
     "stockActual": 0,
     "stockMinimo": 0,
     "creadoEn": "2026-09-15T15:47:23.762Z"
+  },
+  {
+    "id": "3194f5dd-caa9-4007-8adc-7421f916388f",
+    "nombre": "Zapatos421432",
+    "descripcion": "432432",
+    "unidad": "pza",
+    "precio": 4000,
+    "stockActual": 10000,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-22T14:34:38.112Z"
   }
 ]

@@ -14,9 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formProducto');
   const btnNuevo = document.getElementById('btnNuevo');
   const btnCerrarModal = document.getElementById('btnCerrarModal');
+  const modalMsg = document.getElementById('modalMensajeProducto');
 
   // Estado local
   let productos = [];
+
+  function mostrarModalError(texto) {
+    if (modalMsg) {
+      modalMsg.textContent = texto;
+      modalMsg.hidden = false;
+    }
+  }
+
+  function limpiarModalError() {
+    if (modalMsg) {
+      modalMsg.textContent = '';
+      modalMsg.hidden = true;
+    }
+  }
 
   /**
    * Renderiza el catálogo de productos con búsqueda reactiva
@@ -66,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Abre el modal para registrar un nuevo producto
    */
   function abrirNuevo() {
+    limpiarModalError();
     form.reset();
     document.getElementById('productoId').value = '';
     document.getElementById('unidad').value = 'pza';
@@ -74,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('stockMinimo').value = '0';
     document.getElementById('modalTitulo').textContent = 'Nuevo producto';
     UI.openModal();
+    setTimeout(() => document.getElementById('nombre')?.focus(), 100);
   }
 
   /**
@@ -81,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {object} producto - Datos del producto
    */
   function abrirEditar(producto) {
+    limpiarModalError();
     document.getElementById('productoId').value = producto.id;
     document.getElementById('nombre').value = producto.nombre || '';
     document.getElementById('descripcion').value = producto.descripcion || '';
@@ -90,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('stockMinimo').value = producto.stockMinimo ?? 0;
     document.getElementById('modalTitulo').textContent = 'Editar producto';
     UI.openModal();
+    setTimeout(() => document.getElementById('nombre')?.focus(), 100);
   }
 
   /**
@@ -98,16 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
   async function cargar() {
     try {
       productos = await Api.getProductos();
-      render(buscar.value);
+      render(buscar ? buscar.value : '');
     } catch (err) {
       UI.showMessage('error', `Error cargando productos: ${err.message}`);
     }
   }
 
   // Eventos de interfaz
-  btnNuevo.addEventListener('click', abrirNuevo);
-  btnCerrarModal.addEventListener('click', () => UI.closeModal());
-  buscar.addEventListener('input', () => render(buscar.value));
+  if (btnNuevo) btnNuevo.addEventListener('click', abrirNuevo);
+  if (btnCerrarModal) btnCerrarModal.addEventListener('click', () => UI.closeModal());
+  if (buscar) buscar.addEventListener('input', () => render(buscar.value));
 
   /**
    * Normaliza un texto para comparaciones insensibles a mayúsculas, tildes y espacios
@@ -127,11 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Guardar producto (crear o actualizar)
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    limpiarModalError();
+
     const id = document.getElementById('productoId').value;
     const nombre = document.getElementById('nombre').value.trim();
 
     if (!nombre) {
-      UI.showMessage('error', 'El nombre del producto es obligatorio.');
+      mostrarModalError('El nombre del producto es obligatorio.');
       document.getElementById('nombre').focus();
       return;
     }
@@ -139,10 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const norm = normalizarTexto(nombre);
     const duplicado = productos.find((p) => p.id !== id && normalizarTexto(p.nombre) === norm);
     if (duplicado) {
-      UI.showMessage(
-        'error',
-        `Ya existe un producto registrado con el nombre "${duplicado.nombre}". No se permiten productos duplicados.`
-      );
+      mostrarModalError(`Ya existe un producto registrado con el nombre "${duplicado.nombre}".`);
       document.getElementById('nombre').focus();
       return;
     }
@@ -150,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const precioRaw = document.getElementById('precio').value;
     const precio = Number(precioRaw);
     if (!precioRaw || isNaN(precio) || precio <= 0) {
-      UI.showMessage('error', 'El precio unitario debe ser mayor a 0 (no se permiten valores en 0 ni negativos).');
+      mostrarModalError('El precio unitario debe ser mayor a 0.');
       document.getElementById('precio').focus();
       return;
     }
@@ -158,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const stockActualRaw = document.getElementById('stockActual').value;
     const stockActual = Number(stockActualRaw);
     if (isNaN(stockActual) || stockActual < 0) {
-      UI.showMessage('error', 'El stock actual no puede ser un valor negativo.');
+      mostrarModalError('El stock actual no puede ser un valor negativo.');
       document.getElementById('stockActual').focus();
       return;
     }
@@ -166,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const stockMinimoRaw = document.getElementById('stockMinimo').value;
     const stockMinimo = Number(stockMinimoRaw);
     if (isNaN(stockMinimo) || stockMinimo < 0) {
-      UI.showMessage('error', 'La alerta de stock mínimo no puede ser un valor negativo.');
+      mostrarModalError('La alerta de stock mínimo no puede ser un valor negativo.');
       document.getElementById('stockMinimo').focus();
       return;
     }
@@ -188,10 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       UI.closeModal();
-      UI.showMessage('exito', 'Producto guardado correctamente en el catálogo.');
+      UI.showMessage('exito', `Producto "${nombre}" guardado correctamente en el catálogo.`);
       await cargar();
     } catch (err) {
-      UI.showMessage('error', err.message);
+      mostrarModalError(err.message);
     }
   });
 
