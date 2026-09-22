@@ -1,0 +1,33 @@
+[
+  {
+    "id": "0bb79f32-2c3a-44cf-9eb0-ea19f1691100",
+    "nombre": "Marlon",
+    "empresa": "Prueba@empresa",
+    "telefono": "3127068215",
+    "email": "marlonfg1234@gmail.com",
+    "direccion": "cll 132d # 147a - 19",
+    "creadoEn": "2026-09-02T20:21:51.993Z"
+  },
+  {
+    "id": "7822666b-a6f7-490f-817d-baf996021c10",
+    "nombre": "Ingeniería y Construcciones SAS",
+    "empresa": "Constructora Central",
+    "nit": "901.456.789-1",
+    "tipoCliente": "empresa",
+    "telefono": "3119876543",
+    "email": "compras@construcentral.com",
+    "direccion": "Carrera 7 # 72-10, Bogotá",
+    "creadoEn": "2026-09-15T15:18:44.799Z"
+  },
+  {
+    "id": "d017a331-1390-45da-a973-c09b09afd00a",
+    "nombre": "viacoltur sas",
+    "empresa": "viacoltur sas",
+    "telefono": "5405546",
+    "email": "",
+    "direccion": "tv 71bis 75b-17",
+    "nit": "800177674-6",
+    "tipoCliente": "empresa",
+    "creadoEn": "2026-09-15T15:24:36.681Z"
+  }
+]

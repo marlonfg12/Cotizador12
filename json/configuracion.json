@@ -1,0 +1,25 @@
+{
+  "empresa": {
+    "nombre": "Depósito de Flejes San Martín",
+    "telefono": "(+57) 3143754285",
+    "email": "flejessanmarin@hotmail.com"
+  },
+  "whatsapp": {
+    "numero": "3143754285",
+    "mensaje": "Hola {cliente}, le compartimos la cotización {folio} por un total de {total}."
+  },
+  "correo": {
+    "host": "marlonfg1234@gmail.com",
+    "puerto": 587,
+    "seguro": false,
+    "usuario": "marlonfg1234@gmail.com",
+    "contrasena": "MN200622",
+    "remitente": "Flejes San Martin"
+  },
+  "ivaPorcentajeDefault": 19,
+  "aplicarIvaDefault": true,
+  "retefuentePorcentajeDefault": 2.5,
+  "aplicarReteFuenteDefault": true,
+  "reteicaPorcentajeDefault": 0.69,
+  "aplicarReteIcaDefault": true
+}

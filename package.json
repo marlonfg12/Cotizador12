@@ -1,0 +1,24 @@
+{
+  "name": "cotizador-flejes-san-martin",
+  "version": "1.0.0",
+  "description": "Cotizador local de materiales de construcción - Depósito de Flejes San Martín",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "nodemailer": "^6.9.16",
+    "pdf-lib": "^1.17.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "pdf-poppler": "^0.2.3",
+    "pdf-to-img": "^6.3.0",
+    "pdf2pic": "^3.2.0"
+  }
+}

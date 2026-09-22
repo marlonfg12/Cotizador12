@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuración | Depósito de Flejes San Martín</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="app__sidebar" id="sidebar">
+      <h1 class="app__marca">Depósito de Flejes San Martín</h1>
+      <p class="app__marca-sub">Panel de ventas</p>
+      <nav class="app__nav" aria-label="Menú principal">
+        <a class="app__nav-link app__nav-link--destacado" href="/cotizacion.html">+ Nueva cotización</a>
+        <a class="app__nav-link" href="/dashboard.html">Panel de ventas</a>
+        <a class="app__nav-link" href="/clientes.html">Clientes</a>
+        <a class="app__nav-link" href="/productos.html">Productos</a>
+        <a class="app__nav-link" href="/descuentos.html">Descuentos</a>
+        <a class="app__nav-link is-activo" href="/configuracion.html">Configuración</a>
+      </nav>
+      <div class="app__sidebar-pie">
+        <a class="app__nav-link" href="/index.html">Salir</a>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <button class="btn btn--secundario btn--pequeño app__menu-toggle" type="button" id="btnMenu">Menú</button>
+
+      <header class="app__cabecera">
+        <div>
+          <p class="app__eyebrow">AJUSTES DEL SISTEMA</p>
+          <h2 class="app__titulo">Configuración y envíos</h2>
+          <p class="app__subtitulo">Configure una vez el remitente para enviar cotizaciones desde la aplicación.</p>
+        </div>
+      </header>
+
+      <div id="mensaje" hidden></div>
+
+      <form id="formConfig">
+        <section class="seccion">
+          <h3 class="seccion__titulo">Cotizaciones e Impuestos</h3>
+          <p class="seccion__ayuda">Configure los valores predeterminados para nuevas cotizaciones.</p>
+          <div class="formulario__fila formulario__fila--3">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="ivaPorcentajeDefault">IVA por defecto (%)</label>
+              <input class="formulario__campo" id="ivaPorcentajeDefault" type="number" min="0" max="100" step="0.01" value="19">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="retefuentePorcentajeDefault">Retención en la fuente (%)</label>
+              <input class="formulario__campo" id="retefuentePorcentajeDefault" type="number" min="0" max="100" step="0.01" value="4">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="reteicaPorcentajeDefault">ReteICA por defecto (%)</label>
+              <input class="formulario__campo" id="reteicaPorcentajeDefault" type="number" min="0" max="100" step="0.001" value="0.966">
+            </div>
+          </div>
+          <div class="formulario__fila formulario__fila--3" style="margin-top:0.75rem;">
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+                <input type="checkbox" id="aplicarIvaDefault" checked>
+                <span>Aplicar IVA por defecto</span>
+              </label>
+            </div>
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+                <input type="checkbox" id="aplicarReteFuenteDefault" checked>
+                <span>Aplicar Retefuente por defecto</span>
+              </label>
+            </div>
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+                <input type="checkbox" id="aplicarReteIcaDefault">
+                <span>Aplicar ReteICA por defecto</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="seccion">
+          <h3 class="seccion__titulo">WhatsApp</h3>
+          <p class="seccion__ayuda">Configure el número y mensaje predeterminado para compartir cotizaciones por WhatsApp.</p>
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="waNumero">Número de atención</label>
+              <input class="formulario__campo" id="waNumero" placeholder="Ej. 573143754285">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="waMensaje">Mensaje predeterminado</label>
+              <input class="formulario__campo" id="waMensaje" placeholder="Use {cliente}, {folio}, {total}">
+            </div>
+          </div>
+        </section>
+
+        <section class="seccion">
+          <h3 class="seccion__titulo">Correo SMTP</h3>
+          <p class="seccion__ayuda">Con esto no tendrá que iniciar sesión para cada envío. Use una contraseña de aplicación del proveedor de correo.</p>
+          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+            <button class="btn btn--secundario btn--pequeño" type="button" id="btnConfigGmail">Configurar Gmail</button>
+            <button class="btn btn--secundario btn--pequeño" type="button" id="btnConfigOutlook">Configurar Outlook</button>
+          </div>
+          <div class="formulario__fila formulario__fila--3">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="host">Servidor SMTP</label>
+              <input class="formulario__campo" id="host" placeholder="smtp.ejemplo.com">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="puerto">Puerto</label>
+              <input class="formulario__campo" id="puerto" type="number" placeholder="587">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="usuario">Usuario</label>
+              <input class="formulario__campo" id="usuario" placeholder="usuario@correo.com">
+            </div>
+          </div>
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="contrasena">Contraseña de aplicación</label>
+              <input class="formulario__campo" id="contrasena" type="password" placeholder="Contraseña de aplicación">
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="remitente">Remitente visible</label>
+              <input class="formulario__campo" id="remitente" placeholder="Nombre del remitente">
+            </div>
+          </div>
+        </section>
+
+        <div class="formulario__acciones">
+          <button class="btn btn--primario" type="submit">Guardar configuración</button>
+          <button class="btn btn--secundario" type="button" id="respaldo">Crear respaldo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/configuracion.js"></script>
+</body>
+</html>

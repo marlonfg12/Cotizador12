@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descuentos | Depósito de Flejes San Martín</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="app__sidebar" id="sidebar">
+      <h1 class="app__marca">Depósito de Flejes San Martín</h1>
+      <p class="app__marca-sub">Panel de ventas</p>
+      <nav class="app__nav" aria-label="Menú principal">
+        <a class="app__nav-link app__nav-link--destacado" href="/cotizacion.html">+ Nueva cotización</a>
+        <a class="app__nav-link" href="/dashboard.html">Panel de ventas</a>
+        <a class="app__nav-link" href="/clientes.html">Clientes</a>
+        <a class="app__nav-link" href="/productos.html">Productos</a>
+        <a class="app__nav-link is-activo" href="/descuentos.html">Descuentos</a>
+        <a class="app__nav-link" href="/configuracion.html">Configuración</a>
+      </nav>
+      <div class="app__sidebar-pie">
+        <a class="app__nav-link" href="/index.html">Salir</a>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <button class="btn btn--secundario btn--pequeño app__menu-toggle" type="button" id="btnMenu">Menú</button>
+
+      <header class="app__cabecera">
+        <div>
+          <p class="app__eyebrow">PRECIOS ESPECIALES</p>
+          <h2 class="app__titulo">Descuentos configurables</h2>
+          <p class="app__subtitulo">Se aplican automáticamente al crear una cotización.</p>
+        </div>
+      </header>
+
+      <div id="mensaje" hidden></div>
+
+      <section class="seccion">
+        <h3 class="seccion__titulo">Agregar descuento</h3>
+        <p class="seccion__ayuda">Seleccione el tipo, la referencia y el porcentaje de descuento a aplicar.</p>
+        <form id="formDescuento" class="formulario__fila formulario__fila--3" style="align-items:end">
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="tipo">Tipo</label>
+            <select class="formulario__select" id="tipo">
+              <option value="cliente">Cliente</option>
+              <option value="producto">Producto</option>
+            </select>
+          </div>
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="referencia">Referencia</label>
+            <select class="formulario__select" id="referencia"></select>
+          </div>
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="porcentaje">Porcentaje</label>
+            <div style="display:flex;gap:0.5rem">
+              <input class="formulario__campo" id="porcentaje" type="number" min="0" max="100" step="0.01" placeholder="Ej. 10">
+              <button class="btn btn--primario">Agregar</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="listado__grid" id="lista"></section>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/descuentos.js"></script>
+</body>
+</html>

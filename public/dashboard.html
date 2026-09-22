@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Depósito de Flejes San Martín</title>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="app__sidebar" id="sidebar">
+      <h1 class="app__marca">Depósito de Flejes San Martín</h1>
+      <p class="app__marca-sub">Panel de ventas</p>
+      <nav class="app__nav" aria-label="Menú principal">
+        <a class="app__nav-link app__nav-link--destacado" href="/cotizacion.html">+ Nueva cotización</a>
+        <a class="app__nav-link is-activo" href="/dashboard.html">Panel de ventas</a>
+        <a class="app__nav-link" href="/clientes.html">Clientes</a>
+        <a class="app__nav-link" href="/productos.html">Productos</a>
+        <a class="app__nav-link" href="/descuentos.html">Descuentos</a>
+        <a class="app__nav-link" href="/configuracion.html">Configuración</a>
+      </nav>
+      <div class="app__sidebar-pie">
+        <a class="app__nav-link" href="/index.html">Salir</a>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <button class="btn btn--secundario btn--pequeño app__menu-toggle" type="button" id="btnMenu">Menú</button>
+
+      <header class="app__cabecera dashboard__cabecera">
+        <div>
+          <p class="dashboard__saludo">RESUMEN COMERCIAL</p>
+          <h2 class="app__titulo">Panel de ventas</h2>
+          <p class="app__subtitulo">Controle sus cotizaciones, ventas y existencias desde un solo lugar.</p>
+        </div>
+        <a class="btn btn--primario dashboard__nueva" href="/cotizacion.html">＋ Nueva cotización</a>
+      </header>
+
+      <div id="mensaje" hidden></div>
+
+      <section class="ventas__metricas" id="metricasVentas"></section>
+      <section class="stock-alertas" id="alertasStock" hidden></section>
+      <section class="dashboard__accesos" aria-label="Acciones rápidas">
+        <a class="dashboard__acceso" href="/cotizacion.html"><span class="dashboard__acceso-icono">▧</span><span><strong>Cotizar ahora</strong><small>Prepare un nuevo presupuesto</small></span><b>→</b></a>
+        <a class="dashboard__acceso" href="/clientes.html"><span class="dashboard__acceso-icono">♙</span><span><strong>Clientes</strong><small>Actualice sus contactos</small></span><b>→</b></a>
+        <a class="dashboard__acceso" href="/productos.html"><span class="dashboard__acceso-icono">▦</span><span><strong>Inventario</strong><small>Revise stock y precios</small></span><b>→</b></a>
+      </section>
+      <div class="dashboard__seccion-titulo"><div><h3>Últimas cotizaciones</h3><p>Busque, edite o reimprima sus documentos.</p></div><span class="dashboard__contador" id="contadorCotizaciones"></span></div>
+      <div class="toolbar" style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+        <input
+          class="formulario__campo toolbar__busqueda"
+          type="search"
+          id="buscar"
+          placeholder="Buscar por cliente, folio o empresa..."
+          aria-label="Buscar cotizaciones"
+          style="flex:1;min-width:180px;"
+        />
+        <select class="formulario__select" id="filtroEstado" style="min-width:130px;" aria-label="Filtrar por estado">
+          <option value="">Todos los estados</option>
+          <option value="borrador">Borrador</option>
+          <option value="enviada">Enviada</option>
+          <option value="aprobada">Aprobada</option>
+          <option value="rechazada">Rechazada</option>
+          <option value="anulada">Anulada</option>
+        </select>
+        <input class="formulario__campo" type="date" id="filtroDesde" aria-label="Desde" title="Desde" style="min-width:130px;" />
+        <input class="formulario__campo" type="date" id="filtroHasta" aria-label="Hasta" title="Hasta" style="min-width:130px;" />
+      </div>
+
+      <section class="dashboard__grid" id="listaCotizaciones" aria-live="polite"></section>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

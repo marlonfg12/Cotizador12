@@ -1,0 +1,99 @@
+{
+  "creadoEn": "2026-09-14T20:14:59.381Z",
+  "cotizaciones": [
+    {
+      "id": "59b26a19-0d1a-4773-aa67-d5c5e546986f",
+      "folio": "COT-2026-0001",
+      "destinatario": {
+        "nombre": "Marlon",
+        "empresa": "Prueba@empresa",
+        "telefono": "3127068215",
+        "email": "marlonfg1234@gmail.com",
+        "direccion": "cll 132d # 147a - 19",
+        "clienteId": "0bb79f32-2c3a-44cf-9eb0-ea19f1691100"
+      },
+      "items": [
+        {
+          "productoId": null,
+          "descripcion": "Fleje de 30*30",
+          "cantidad": 1100,
+          "unidad": "pza",
+          "precioUnitario": 5000
+        }
+      ],
+      "subtotal": 5500000,
+      "ivaPorcentaje": 19,
+      "iva": 1045000,
+      "total": 6545000,
+      "servicio": "Venta de Material de Construcción / Ornamentación",
+      "detalleServicio": "Material de Construcción: Varillas, Flejes.\nOrnamentación: Portones, Portones Eléctricos, Vallas, Puertas, Ventanas.",
+      "condiciones": "50% anticipo para iniciar\n50% contra entrega",
+      "metodosPago": "Transferencia bancaria\nEfectivo\nNequi",
+      "tiempoEntrega": "2 a 5 días hábiles",
+      "inicioProyecto": "Una vez confirmado el anticipo",
+      "notas": "",
+      "creadoEn": "2026-09-02T20:23:14.579Z",
+      "actualizadoEn": "2026-09-02T20:23:14.579Z"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "0bb79f32-2c3a-44cf-9eb0-ea19f1691100",
+      "nombre": "Marlon",
+      "empresa": "Prueba@empresa",
+      "telefono": "3127068215",
+      "email": "marlonfg1234@gmail.com",
+      "direccion": "cll 132d # 147a - 19",
+      "creadoEn": "2026-09-02T20:21:51.993Z"
+    }
+  ],
+  "productos": [
+    {
+      "id": "04a6a638-8c05-4591-86dd-a31eb3d26447",
+      "nombre": "Prueba Alerta",
+      "descripcion": "",
+      "unidad": "pza",
+      "precio": 0,
+      "stockActual": 2,
+      "stockMinimo": 2,
+      "creadoEn": "2026-09-14T20:07:57.673Z"
+    },
+    {
+      "id": "12ee3945-2bc8-4963-9fb0-7dfae6bc40c8",
+      "nombre": "Prueba Alerta 2",
+      "descripcion": "",
+      "unidad": "pza",
+      "precio": 0,
+      "stockActual": 1,
+      "stockMinimo": 1,
+      "creadoEn": "2026-09-14T20:08:16.721Z"
+    }
+  ],
+  "descuentos": [
+    {
+      "id": "7456c3f9-d82a-4c97-ac95-9229ab3a6433",
+      "tipo": "cliente",
+      "referenciaId": "0bb79f32-2c3a-44cf-9eb0-ea19f1691100",
+      "porcentaje": 15
+    }
+  ],
+  "configuracion": {
+    "empresa": {
+      "nombre": "Depósito de Flejes San Martín",
+      "telefono": "(+57) 3143754285",
+      "email": "flejessanmarin@hotmail.com"
+    },
+    "whatsapp": {
+      "numero": "3127068215",
+      "mensaje": "Hola {cliente}, le compartimos la cotización {folio} por un total de {total}."
+    },
+    "correo": {
+      "host": "marlonfg1234@gmail.com",
+      "puerto": 587,
+      "seguro": false,
+      "usuario": "marlonfg1234@gmail.com",
+      "contrasena": "MN200622",
+      "remitente": "Flejes San Martin"
+    }
+  }
+}

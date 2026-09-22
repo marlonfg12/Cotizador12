@@ -1,0 +1,14 @@
+[
+  {
+    "id": "7456c3f9-d82a-4c97-ac95-9229ab3a6433",
+    "tipo": "cliente",
+    "referenciaId": "0bb79f32-2c3a-44cf-9eb0-ea19f1691100",
+    "porcentaje": 15
+  },
+  {
+    "id": "83a1f22d-fab3-4140-94db-24a702c77163",
+    "tipo": "producto",
+    "referenciaId": "7fef5694-6f2d-47e9-99c3-8a2681b338a4",
+    "porcentaje": 10
+  }
+]

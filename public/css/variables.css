@@ -1,0 +1,40 @@
+:root {
+  --color-azul-rey: #0a2a6b;
+  --color-azul-rey-oscuro: #061a45;
+  --color-azul-rey-claro: #1a3f8f;
+  --color-azul-suave: #e8eef8;
+  --color-blanco: #ffffff;
+  --color-negro: #111111;
+  --color-gris: #5a5a5a;
+  --color-gris-claro: #f3f5f9;
+  --color-borde: #d5dbe8;
+  --color-exito: #1b7a3d;
+  --color-peligro: #b42318;
+  --color-aviso: #9a6700;
+
+  /* Gradientes premium */
+  --grad-sidebar: linear-gradient(180deg, #061a45 0%, #0a2a6b 40%, #123a8a 100%);
+  --grad-header: linear-gradient(135deg, #f7f9fd 0%, #e8eef8 100%);
+
+  /* Sombras */
+  --sombra-suave: 0 8px 24px rgba(10, 42, 107, 0.12);
+  --sombra-card: 0 2px 8px rgba(10, 42, 107, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --sombra-card-hover: 0 8px 32px rgba(10, 42, 107, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --sombra-sidebar: 4px 0 24px rgba(6, 26, 69, 0.18);
+  --sombra-input-focus: 0 0 0 3px rgba(10, 42, 107, 0.12), 0 2px 8px rgba(10, 42, 107, 0.08);
+
+  /* Radios */
+  --radio: 12px;
+  --radio-sm: 8px;
+  --radio-lg: 16px;
+
+  /* Layout */
+  --sidebar-ancho: 270px;
+
+  /* Tipografía */
+  --font-base: 'Inter', 'Segoe UI', 'Trebuchet MS', Tahoma, sans-serif;
+
+  /* Transiciones */
+  --transicion: 0.2s ease;
+  --transicion-lenta: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotizador | Depósito de Flejes San Martín</title>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="app__sidebar" id="sidebar">
+      <h1 class="app__marca">Depósito de Flejes San Martín</h1>
+      <p class="app__marca-sub">Panel de ventas</p>
+      <nav class="app__nav" aria-label="Menú principal">
+        <a class="app__nav-link app__nav-link--destacado is-activo" href="/cotizacion.html">+ Nueva cotización</a>
+        <a class="app__nav-link" href="/dashboard.html">Panel de ventas</a>
+        <a class="app__nav-link" href="/clientes.html">Clientes</a>
+        <a class="app__nav-link" href="/productos.html">Productos</a>
+        <a class="app__nav-link" href="/descuentos.html">Descuentos</a>
+        <a class="app__nav-link" href="/configuracion.html">Configuración</a>
+      </nav>
+      <div class="app__sidebar-pie">
+        <a class="app__nav-link" href="/index.html">Salir</a>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <button class="btn btn--secundario btn--pequeño app__menu-toggle" type="button" id="btnMenu">Menú</button>
+
+      <header class="app__cabecera">
+        <div>
+          <p class="app__eyebrow">PRESUPUESTO COMERCIAL</p>
+          <h2 class="app__titulo" id="tituloPagina">Nueva cotización</h2>
+          <p class="app__subtitulo">Complete los datos para generar, descargar o enviar la cotización.</p>
+        </div>
+        <div class="app__cabecera-acciones" style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+          <a class="btn btn--secundario" id="btnVerPdf" href="#" target="_blank" hidden>📄 Ver PDF en carpeta</a>
+          <button class="btn btn--secundario" type="button" id="btnWhatsApp" hidden>📱 Enviar por WhatsApp</button>
+          <button class="btn btn--secundario" type="button" id="btnCorreo" hidden>✉️ Enviar por correo</button>
+          <button class="btn btn--primario" type="button" id="btnGuardar">Guardar cotización</button>
+        </div>
+      </header>
+
+      <div id="mensaje" hidden></div>
+
+      <form id="formCotizacion" novalidate>
+        <!-- 1. DESTINATARIO Y CLIENTE -->
+        <section class="seccion">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+            <div>
+              <h3 class="seccion__titulo" style="margin:0;">1. Destinatario / Cliente</h3>
+              <p class="seccion__ayuda" style="margin:0.2rem 0 0;">Elija un cliente guardado o ingrese los datos manualmente.</p>
+            </div>
+            <button class="btn btn--secundario btn--pequeño" type="button" id="btnGuardarClienteManual" title="Guardar el cliente escrito a mano en el directorio">
+              💾 Guardar cliente en directorio
+            </button>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="clienteExistente">Cargar cliente existente</label>
+            <select class="formulario__select" id="clienteExistente">
+              <option value="">Escribir datos manualmente</option>
+            </select>
+          </div>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioNombre">Nombre del contacto o cliente *</label>
+              <input class="formulario__campo" id="destinatarioNombre" required placeholder="Ej. Juan Pérez" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioEmpresa">Empresa / Obra</label>
+              <input class="formulario__campo" id="destinatarioEmpresa" placeholder="Ej. Constructora Bolívar / Obra Calle 80" />
+            </div>
+          </div>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioTelefono">Teléfono / Celular</label>
+              <input class="formulario__campo" id="destinatarioTelefono" placeholder="Ej. 314 375 4285" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioEmail">Correo electrónico</label>
+              <input class="formulario__campo" type="email" id="destinatarioEmail" placeholder="cliente@correo.com" />
+            </div>
+          </div>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioNIT">NIT / Cédula / RUT</label>
+              <input class="formulario__campo" id="destinatarioNIT" placeholder="Ej. 900.123.456-7" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="destinatarioTipoCliente">Tipo de cliente</label>
+              <select class="formulario__select" id="destinatarioTipoCliente">
+                <option value="persona">Persona Natural</option>
+                <option value="empresa">Empresa</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="destinatarioDireccion">Dirección de entrega / Ubicación</label>
+            <input class="formulario__campo" id="destinatarioDireccion" placeholder="Ej. Carrera 15 # 45-20, Bogotá" />
+          </div>
+        </section>
+
+        <!-- 2. ESTADO Y VIGENCIA -->
+        <section class="seccion">
+          <h3 class="seccion__titulo">2. Estado y Vigencia</h3>
+          <p class="seccion__ayuda">Controle la validez y el estado del documento comercial.</p>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                <label class="formulario__etiqueta" for="estado" style="margin:0;">Estado de la cotización</label>
+                <button class="btn btn--secundario btn--pequeño" type="button" id="btnGuardarSoloEstado" title="Actualizar solo el estado sin regenerar PDF">
+                  ⚡ Actualizar estado
+                </button>
+              </div>
+              <select class="formulario__select" id="estado">
+                <option value="borrador">Borrador</option>
+                <option value="enviada">Enviada</option>
+                <option value="aprobada">Aprobada</option>
+                <option value="rechazada">Rechazada</option>
+                <option value="anulada">Anulada</option>
+              </select>
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="vigenteHasta">Vigencia de la cotización</label>
+              <input class="formulario__campo" type="date" id="vigenteHasta" />
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. MATERIALES Y PRODUCTOS -->
+        <section class="seccion">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+            <div>
+              <h3 class="seccion__titulo" style="margin:0;">3. Materiales y Productos</h3>
+              <p class="seccion__ayuda" style="margin:0.2rem 0 0;">Agregue los ítems solicitados (desde catálogo o digitando manualmente).</p>
+            </div>
+            <button class="btn btn--secundario btn--pequeño" type="button" id="btnAgregarItem">
+              ＋ Agregar producto
+            </button>
+          </div>
+
+          <div class="items">
+            <table class="items__tabla">
+              <thead>
+                <tr>
+                  <th style="width:48%;">Descripción / Material</th>
+                  <th style="width:14%;">Cantidad</th>
+                  <th style="width:18%;">Precio Unitario ($)</th>
+                  <th style="width:12%;">Desc. (%)</th>
+                  <th style="width:8%;text-align:center;">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="itemsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. TOTALES E IMPUESTOS -->
+        <section class="seccion">
+          <h3 class="seccion__titulo">4. Liquidación e Impuestos</h3>
+          <p class="seccion__ayuda">Active o desactive impuestos según los requerimientos tributarios del cliente.</p>
+
+          <div class="formulario__fila formulario__fila--3" style="margin-bottom:1.25rem;">
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <input type="checkbox" id="aplicarIVA" checked />
+                <span style="font-weight:600;">Aplicar IVA</span>
+              </label>
+              <div style="display:flex;align-items:center;gap:0.4rem;">
+                <input class="formulario__campo" id="ivaPorcentaje" type="number" min="0" max="100" step="0.01" value="19" />
+                <span>%</span>
+              </div>
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <input type="checkbox" id="aplicarReteFuente" checked />
+                <span style="font-weight:600;">Aplicar Retefuente</span>
+              </label>
+              <div style="display:flex;align-items:center;gap:0.4rem;">
+                <input class="formulario__campo" id="retefuentePorcentaje" type="number" min="0" max="100" step="0.01" value="2.5" />
+                <span>%</span>
+              </div>
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="totales__check" style="cursor:pointer;display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+                <input type="checkbox" id="aplicarReteICA" />
+                <span style="font-weight:600;">Aplicar ReteICA</span>
+              </label>
+              <div style="display:flex;align-items:center;gap:0.4rem;">
+                <input class="formulario__campo" id="reteicaPorcentaje" type="number" min="0" max="100" step="0.001" value="0.69" />
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAJA DE TOTALES Y CONDICIONES 50/50 -->
+          <div class="totales" style="background:#f8fafc;padding:1.25rem;border-radius:var(--radio);border:1px solid var(--color-borde);">
+            <div class="totales__fila" style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:1rem;">
+              <span>Subtotal neto:</span>
+              <strong id="subtotalTexto">$0</strong>
+            </div>
+
+            <div class="totales__fila" id="filaIva" style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.95rem;">
+              <span>IVA:</span>
+              <strong id="ivaTexto">$0</strong>
+            </div>
+
+            <div class="totales__fila" id="filaRetefuente" style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.95rem;">
+              <span>Retención en la fuente (-):</span>
+              <strong id="retefuenteTexto">$0</strong>
+            </div>
+
+            <div class="totales__fila" id="filaReteica" style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.95rem;">
+              <span>ReteICA (-):</span>
+              <strong id="reteicaTexto">$0</strong>
+            </div>
+
+            <div class="totales__fila totales__fila--gran-total" style="display:flex;justify-content:space-between;padding:0.75rem 0;font-size:1.3rem;font-weight:800;color:var(--color-azul-rey);border-top:2px solid var(--color-borde);margin-top:0.5rem;">
+              <span>TOTAL:</span>
+              <span id="totalTexto">$0</span>
+            </div>
+
+            <!-- TARJETA CONDICIONES 50/50 -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--color-borde);">
+              <div style="background:#e8f7ee;padding:0.75rem 1rem;border-radius:var(--radio-sm);border:1px solid #b7e4c7;">
+                <small style="color:#1b7a3d;font-weight:700;text-transform:uppercase;font-size:0.75rem;display:block;">• Anticipo 50% (Inicio):</small>
+                <strong id="anticipoTexto" style="font-size:1.15rem;color:#156432;">$0</strong>
+                <span id="condicionAnticipoValor" hidden></span>
+              </div>
+              <div style="background:#f1f5f9;padding:0.75rem 1rem;border-radius:var(--radio-sm);border:1px solid #cbd5e1;">
+                <small style="color:#475569;font-weight:700;text-transform:uppercase;font-size:0.75rem;display:block;">• Saldo 50% (Entrega):</small>
+                <strong id="saldoTexto" style="font-size:1.15rem;color:#1e293b;">$0</strong>
+                <span id="condicionSaldoValor" hidden></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. LOGÍSTICA Y CONDICIONES COMERCIALES -->
+        <section class="seccion">
+          <h3 class="seccion__titulo">5. Logística, Entregas y Pagos</h3>
+          <p class="seccion__ayuda">Especifique el alcance, tiempos y formas de recaudo.</p>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="servicio">Servicio / Objeto comercial</label>
+              <input class="formulario__campo" id="servicio" value="Venta de Material de Construcción / Ornamentación" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="inicioProyecto">Inicio de fabricación / despacho</label>
+              <input class="formulario__campo" id="inicioProyecto" value="Una vez confirmado el anticipo" />
+            </div>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="detalleServicio">Detalle o alcance técnico</label>
+            <textarea class="formulario__area" id="detalleServicio" rows="2" placeholder="Especificaciones adicionales del material o condiciones de entrega"></textarea>
+          </div>
+
+          <!-- FECHAS DE ENTREGA Y DÍAS HÁBILES -->
+          <div class="formulario__fila formulario__fila--3">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="entregaDesde">Fecha estimada (Desde)</label>
+              <input class="formulario__campo" type="date" id="entregaDesde" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="entregaHasta">Fecha estimada (Hasta)</label>
+              <input class="formulario__campo" type="date" id="entregaHasta" />
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="tiempoEntrega">Tiempo de entrega calculado</label>
+              <input class="formulario__campo" id="tiempoEntrega" value="2 a 5 días hábiles" />
+            </div>
+          </div>
+
+          <div class="formulario__fila formulario__fila--2">
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="condiciones">Condiciones de pago (Desglose 50/50)</label>
+              <textarea class="formulario__area" id="condiciones" rows="3"></textarea>
+            </div>
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="metodosPago">Cuentas y Métodos de pago</label>
+              <textarea class="formulario__area" id="metodosPago" rows="3">Transferencia bancaria&#10;Bancolombia Ahorros No. 123-456789-01&#10;Depósito de Flejes San Martín</textarea>
+            </div>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="notas">Observaciones y notas finales</label>
+            <textarea class="formulario__area" id="notas" rows="2" placeholder="Notas adicionales visibles al pie de la cotización..."></textarea>
+          </div>
+        </section>
+
+        <!-- ACCIONES PRINCIPALES DEL FORMULARIO -->
+        <div class="formulario__acciones" style="margin-top:2rem;">
+          <button class="btn btn--primario btn--grande" type="submit">💾 Guardar cotización</button>
+          <a class="btn btn--secundario btn--grande" href="/dashboard.html">Volver al panel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE DESPACHO INTELIGENTE POR WHATSAPP -->
+  <div class="modal" id="modalWhatsApp" role="dialog" aria-modal="true" aria-labelledby="modalTituloWhatsApp">
+    <div class="modal__caja" style="max-width:550px;">
+      <h3 class="modal__titulo" id="modalTituloWhatsApp">📱 Compartir cotización por WhatsApp</h3>
+      <p style="font-size:0.9rem;color:var(--color-gris);margin-bottom:1rem;">
+        El PDF se almacenó en el servidor y se encuentra listo para compartir.
+      </p>
+
+      <div id="waAlertaFijo" class="alerta alerta--info" style="display:none;margin-bottom:1rem;">
+        ℹ️ El teléfono del cliente (<strong id="waTextoTelCliente"></strong>) parece ser un número fijo. Se sugiere enviar la copia al número de la empresa o escribir un celular alternativo.
+      </div>
+
+      <div style="margin-bottom:1rem;display:flex;flex-direction:column;gap:0.6rem;">
+        <label id="waOpcionClienteLabel" style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:0.5rem;border:1px solid var(--color-borde);border-radius:var(--radio-sm);">
+          <input type="radio" name="waDestino" id="waDestinoCliente" value="cliente" checked />
+          <div>
+            <strong style="display:block;font-size:0.92rem;">Enviar al Cliente</strong>
+            <small id="waDescCliente" style="color:var(--color-gris);"></small>
+          </div>
+        </label>
+
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:0.5rem;border:1px solid var(--color-borde);border-radius:var(--radio-sm);">
+          <input type="radio" name="waDestino" id="waDestinoEmpresa" value="empresa" />
+          <div>
+            <strong style="display:block;font-size:0.92rem;">Enviar Copia a la Empresa / Remitente</strong>
+            <small id="waDescEmpresa" style="color:var(--color-gris);"></small>
+          </div>
+        </label>
+
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:0.5rem;border:1px solid var(--color-borde);border-radius:var(--radio-sm);">
+          <input type="radio" name="waDestino" id="waDestinoManual" value="manual" />
+          <div style="flex:1;">
+            <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Enviar a otro número de celular:</strong>
+            <input class="formulario__campo" id="waNumeroManual" placeholder="Ej. 3001234567" style="min-height:36px;padding:0.3rem 0.6rem;" />
+          </div>
+        </label>
+      </div>
+
+      <div class="formulario__grupo">
+        <label class="formulario__etiqueta" for="waMensajeTexto">Mensaje que se enviará:</label>
+        <textarea class="formulario__area" id="waMensajeTexto" rows="5"></textarea>
+      </div>
+
+      <div style="margin-bottom:1rem;font-size:0.88rem;color:var(--color-gris);">
+        📎 <strong>Enlace al PDF:</strong> <a id="waLinkPdf" href="#" target="_blank">Abrir PDF en carpeta</a>
+      </div>
+
+      <div class="modal__acciones">
+        <button class="btn btn--secundario" type="button" id="btnCancelarWhatsApp">Cancelar</button>
+        <button class="btn btn--primario" type="button" id="btnConfirmarWhatsApp">🚀 Abrir WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="/js/pdf.js"></script>
+  <script src="/js/cotizacion.js"></script>
+</body>
+</html>

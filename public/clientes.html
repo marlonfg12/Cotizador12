@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clientes | Depósito de Flejes San Martín</title>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="app__sidebar" id="sidebar">
+      <h1 class="app__marca">Depósito de Flejes San Martín</h1>
+      <p class="app__marca-sub">Panel de ventas</p>
+      <nav class="app__nav" aria-label="Menú principal">
+        <a class="app__nav-link app__nav-link--destacado" href="/cotizacion.html">+ Nueva cotización</a>
+        <a class="app__nav-link" href="/dashboard.html">Panel de ventas</a>
+        <a class="app__nav-link is-activo" href="/clientes.html">Clientes</a>
+        <a class="app__nav-link" href="/productos.html">Productos</a>
+        <a class="app__nav-link" href="/descuentos.html">Descuentos</a>
+        <a class="app__nav-link" href="/configuracion.html">Configuración</a>
+      </nav>
+      <div class="app__sidebar-pie">
+        <a class="app__nav-link" href="/index.html">Salir</a>
+      </div>
+    </aside>
+
+    <div class="app__main">
+      <button class="btn btn--secundario btn--pequeño app__menu-toggle" type="button" id="btnMenu">Menú</button>
+
+      <header class="app__cabecera">
+        <div>
+          <p class="app__eyebrow">DIRECTORIO</p>
+          <h2 class="app__titulo">Clientes</h2>
+          <p class="app__subtitulo">Guarde clientes frecuentes para reutilizarlos en cotizaciones. También puede cotizar sin registrarlos.</p>
+        </div>
+        <button class="btn btn--primario" type="button" id="btnNuevo">+ Nuevo cliente</button>
+      </header>
+
+      <div id="mensaje" hidden></div>
+
+      <div class="toolbar">
+        <input class="formulario__campo toolbar__busqueda" type="search" id="buscar" placeholder="Buscar cliente..." />
+      </div>
+
+      <section class="listado__grid" id="lista"></section>
+    </div>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal__caja">
+      <h3 class="modal__titulo" id="modalTitulo">Nuevo cliente</h3>
+      <form id="formCliente">
+        <input type="hidden" id="clienteId" />
+        <div class="formulario__grupo">
+          <label class="formulario__etiqueta" for="nombre">Nombre *</label>
+          <input class="formulario__campo" id="nombre" required />
+        </div>
+        <div class="formulario__grupo">
+          <label class="formulario__etiqueta" for="empresa">Empresa / obra</label>
+          <input class="formulario__campo" id="empresa" />
+        </div>
+        <div class="formulario__grupo">
+          <label class="formulario__etiqueta" for="telefono">Teléfono</label>
+          <input class="formulario__campo" id="telefono" />
+        </div>
+        <div class="formulario__grupo">
+          <label class="formulario__etiqueta" for="email">Correo</label>
+          <input class="formulario__campo" type="email" id="email" />
+        </div>
+        <div class="formulario__fila formulario__fila--2">
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="nit">NIT / Cédula / RUT</label>
+            <input class="formulario__campo" id="nit" placeholder="Ej. 900.123.456-7" />
+          </div>
+          <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="tipoCliente">Tipo de cliente</label>
+            <select class="formulario__select" id="tipoCliente">
+              <option value="persona">Persona Natural</option>
+              <option value="empresa">Empresa</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+        </div>
+        <div class="formulario__grupo">
+          <label class="formulario__etiqueta" for="direccion">Dirección</label>
+          <input class="formulario__campo" id="direccion" />
+        </div>
+        <div class="modal__acciones">
+          <button class="btn btn--secundario" type="button" id="btnCerrarModal">Cancelar</button>
+          <button class="btn btn--primario" type="submit">Guardar cliente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/clientes.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Binarios e instaladores
+*.exe
+
+# Respaldos y temporales
+graphify-out/
+.claude/

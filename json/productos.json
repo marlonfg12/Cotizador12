@@ -1,0 +1,92 @@
+[
+  {
+    "id": "04a6a638-8c05-4591-86dd-a31eb3d26447",
+    "nombre": "Prueba Alerta",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 1500,
+    "stockActual": 50,
+    "stockMinimo": 2,
+    "creadoEn": "2026-09-14T20:07:57.673Z"
+  },
+  {
+    "id": "7fef5694-6f2d-47e9-99c3-8a2681b338a4",
+    "nombre": "Prueba Alerta 3",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 5000,
+    "stockActual": 1,
+    "stockMinimo": 1,
+    "creadoEn": "2026-09-15T14:31:15.253Z"
+  },
+  {
+    "id": "c70cb42d-a8ed-44ce-8ad6-be83e39b38f5",
+    "nombre": "Fleje figurado 20x20",
+    "descripcion": "Acero corrugado 1/4",
+    "unidad": "pza",
+    "precio": 3500,
+    "stockActual": 150,
+    "stockMinimo": 50,
+    "creadoEn": "2026-09-15T15:18:44.814Z"
+  },
+  {
+    "id": "3b087f71-605f-4f53-862e-009c81aba59c",
+    "nombre": "varilla corrugada 5/8 diaco",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 35042,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:20:03.385Z"
+  },
+  {
+    "id": "db79cace-56f8-453c-bcd3-3a8e6c0863c9",
+    "nombre": "varilla corrugada 3/4",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 49579,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:20:10.290Z"
+  },
+  {
+    "id": "de6cd086-8595-4dfd-9bf3-982a579de126",
+    "nombre": "alambre negro x kg",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 5042,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:20:11.906Z"
+  },
+  {
+    "id": "267a9531-18c1-4f89-9f6f-b81bba2f810b",
+    "nombre": "flejes de 40x50 3/8",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 5042,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:20:15.058Z"
+  },
+  {
+    "id": "cd1d00cb-0b2f-4d10-9877-8a157077d5e2",
+    "nombre": "hierro chipa 3/8 x kg",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 4369,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:20:16.249Z"
+  },
+  {
+    "id": "c8caae95-dc83-4a0e-94bb-296cc6bcb858",
+    "nombre": "hola",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 10000,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-15T15:47:23.762Z"
+  }
+]
