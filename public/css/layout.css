@@ -410,47 +410,72 @@
 .venta-kpi {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 1.1rem 1rem;
+  gap: 1.1rem;
+  padding: 1.2rem 1.25rem;
   border-radius: var(--radio);
-  background: linear-gradient(135deg, #fff 0%, #f7f9fd 100%);
+  background: var(--color-blanco);
   border: 1px solid var(--color-borde);
   box-shadow: var(--sombra-card);
-  transition: transform var(--transicion-lenta), box-shadow var(--transicion-lenta);
+  transition: transform var(--transicion-lenta), box-shadow var(--transicion-lenta), border-color var(--transicion);
 }
 
 .venta-kpi:hover {
   transform: translateY(-2px);
   box-shadow: var(--sombra-card-hover);
-}
-
-.venta-kpi small,
-.venta-kpi span {
-  display: block;
-  color: var(--color-gris);
-  font-size: 0.82rem;
-}
-
-.venta-kpi strong {
-  display: block;
-  color: var(--color-azul-rey);
-  font-size: 1.55rem;
-  font-weight: 800;
-  margin: 0.15rem 0;
-  letter-spacing: -0.02em;
+  border-color: rgba(10, 42, 107, 0.18);
 }
 
 .venta-kpi__icono {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  flex: 0 0 46px;
-  border-radius: var(--radio);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: var(--radio-sm);
   background: var(--color-azul-suave);
   color: var(--color-azul-rey);
+  flex-shrink: 0;
+}
+
+.venta-kpi__icono--ventas {
+  background: #e8f7ee;
+  color: #1b7a3d;
+}
+
+.venta-kpi__icono--pendientes {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.venta-kpi__contenido {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.venta-kpi__titulo {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gris);
+  margin-bottom: 0.2rem;
+}
+
+.venta-kpi__valor {
+  display: block;
+  color: var(--color-azul-rey);
+  font-size: 1.6rem;
   font-weight: 800;
-  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.venta-kpi__detalle {
+  display: block;
+  color: var(--color-gris);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
 }
 
 /* --- Stock alerts --- */
