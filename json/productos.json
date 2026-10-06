@@ -98,5 +98,15 @@
     "stockActual": 10000,
     "stockMinimo": 0,
     "creadoEn": "2026-09-22T14:34:38.112Z"
+  },
+  {
+    "id": "549f7dca-af52-4da7-90b4-ca3b2e5fd948",
+    "nombre": "flejes de 20x40 3/8",
+    "descripcion": "",
+    "unidad": "pza",
+    "precio": 4050,
+    "stockActual": 0,
+    "stockMinimo": 0,
+    "creadoEn": "2026-09-22T14:48:48.225Z"
   }
 ]
